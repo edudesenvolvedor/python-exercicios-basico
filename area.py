@@ -1,6 +1,6 @@
-PI = 3.14159
-
 arquivo = "3.0 4.0 5.2"
+
+PI = 3.14159
 
 a = float(arquivo.split(" ")[0])
 b = float(arquivo.split(" ")[1])
