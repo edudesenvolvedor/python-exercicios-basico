@@ -23,12 +23,12 @@ def validar_nome(nome):
     return nome
 
 def rodadas (jogadas, valores):
-    jogador1 = jogadas.split(" ")[0]
-    escolha1 = jogadas.split(" ")[1]
-    valor1 = int(valores.split(" ")[0])
-    jogador2 = jogadas.split(" ")[2]
-    escolha2 = jogadas.split(" ")[3]
-    valor2 = int(valores.split(" ")[1])
+    jogador1 = jogadas.split(" ")[0].strip()
+    escolha1 = jogadas.split(" ")[1].strip()
+    valor1 = int(valores.split(" ")[0].strip())
+    jogador2 = jogadas.split(" ")[2].strip()
+    escolha2 = jogadas.split(" ")[3].strip()
+    valor2 = int(valores.split(" ")[1].strip())
 
     return {
         "jogador_1": {
