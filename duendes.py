@@ -1,27 +1,11 @@
-def obter_entrada():
-    N = int(input())  # Número de entradas
-    velocidades = []
+expediente = input()
+tempos_producao = input()
 
-    for i in range(N):
-        T, D = map(int, input().strip().split())
-        velocidades.append((T, D))
+tempo_total_producao = 0
+for tempo in tempos_producao.split(" "):
+    tempo_total_producao += float(tempo)
 
-    return N, velocidades
-
-def calcular_maxima_velocidade(velocidades):
-    Vmax = 0
-    for i, (T, D) in enumerate(velocidades, start=1):
-        V = D / T
-        if V > Vmax:
-            Vmax = V
-            print(i)
-
-def main():
-    while True:
-        try:
-            N, velocidades = obter_entrada()
-            calcular_maxima_velocidade(velocidades)
-        except EOFError:
-            break
-
-main()
+if tempo_total_producao > float(expediente):
+    print("Deixa para amanha!")
+else:
+    print("Farei hoje!")
