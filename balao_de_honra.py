@@ -1,6 +1,6 @@
 import string
 
-arquivo = "c"
+arquivo = input()
 
 alfabeto = list(string.ascii_uppercase)
 
