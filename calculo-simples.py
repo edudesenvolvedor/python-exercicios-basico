@@ -1,15 +1,14 @@
-dado = "12 1 5.30 \n 16 2 5.10"
+def calcular_total(itens):
+    total = 0
+    for quantidade, valor in itens:
+        total += quantidade * valor
+    return total
 
-lista_produtos = dado.split("\n")
+itens = []
+for i in range(2):
+    _, quantidade, valor = input().split()
+    itens.append((int(quantidade), float(valor)))
 
-valor_total = 0
+total = calcular_total(itens)
 
-for produto in lista_produtos:
-    produto = produto.strip()
-    produto = produto.split(" ")
-    codigo = produto[0]
-    quantidade = int(produto[1])
-    valor = float(produto[2])
-    valor_total = valor_total + (valor * quantidade)
-
-print(f'VALOR A PAGAR: R$ {valor_total:.2f}')
+print(f"VALOR A PAGAR: R$ {total:.2f}")
