@@ -1,15 +1,26 @@
-entrada = input().strip().split(' ')
-
-jipes, pessoas = 0, 0
-while(entrada[0] != "ABEND"):
-    if(entrada[0] == "SALIDA"):
-        pessoas += int(entrada[1])
+def processar_evento(evento, quantidade, pessoas, jipes):
+    if evento == "SALIDA":
+        pessoas += quantidade
         jipes += 1
-    else:
-        pessoas -= int(entrada[1])
+    elif evento == "ENTRADA":
+        pessoas -= quantidade
         jipes -= 1
+    return pessoas, jipes
 
-    entrada = input().strip().split(' ')
+def main():
+    pessoas, jipes = 0, 0
 
-print(pessoas)
-print(jipes)
+    while True:
+        entrada = input().strip().split(' ')
+        
+        if entrada[0] == "ABEND":
+            break
+        
+        evento = entrada[0]
+        quantidade = int(entrada[1])
+        pessoas, jipes = processar_evento(evento, quantidade, pessoas, jipes)
+
+    print(pessoas)
+    print(jipes)
+
+main()
