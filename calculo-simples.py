@@ -1,14 +1,24 @@
-def calcular_total(itens):
-    total = 0
-    for quantidade, valor in itens:
-        total += quantidade * valor
-    return total
+def determinar_vencedor(rodada):
 
-itens = []
-for i in range(2):
-    _, quantidade, valor = input().split()
-    itens.append((int(quantidade), float(valor)))
+    resultado = 'IMPAR' if (rodada['N'] + rodada['M']) % 2 else 'PAR'
+    return rodada['jogador1'] if rodada['jogada1'] == resultado else rodada['jogador2']
 
-total = calcular_total(itens)
+QT = int(input())
 
-print(f"VALOR A PAGAR: R$ {total:.2f}")
+rodadas = []
+
+for i in range(QT):
+    jogador1, jogada1, jogador2, jogada2 = input().strip().split(' ')
+    N, M = map(int, input().strip().split(' '))
+    rodadas.append({
+        'jogador1': jogador1,
+        'jogada1': jogada1,
+        'jogador2': jogador2,
+        'jogada2': jogada2,
+        'N': N,
+        'M': M
+    })
+
+for i, rodada in enumerate(rodadas, start=1):
+    vencedor = determinar_vencedor(rodada)
+    print(f"{vencedor}")
