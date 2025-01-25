@@ -1,33 +1,15 @@
-arquivo = ("SALIDA 10\n"
-           "SALIDA 12\n"
-           "SALIDA 10\n"
-           "VUELTA 20\n"
-           "ABEND")
+entrada = input().strip().split(' ')
 
-dados = arquivo.splitlines()
+jipes, pessoas = 0, 0
+while(entrada[0] != "ABEND"):
+    if(entrada[0] == "SALIDA"):
+        pessoas += int(entrada[1])
+        jipes += 1
+    else:
+        pessoas -= int(entrada[1])
+        jipes -= 1
 
-jeeps = 0
-turistas = 0
+    entrada = input().strip().split(' ')
 
-for linha in dados:
-    linha = linha.split(" ")
-    status_jeep = linha[0]
-    if(status_jeep == "SALIDA"):
-        jeeps += 1
-
-    if(status_jeep == "VUELTA"):
-        jeeps -= 1
-
-    if len(linha) > 1:
-        qnt_turista = linha[1]
-        if(status_jeep == "SALIDA"):
-            turistas += int(qnt_turista)
-
-        if(status_jeep == "VUELTA"):
-            turistas -= int(qnt_turista)
-
-
-print(turistas)
-
-print(jeeps)
-
+print(pessoas)
+print(jipes)
