@@ -1,15 +1,27 @@
-arquivo = ("20\n"
-           "15 6")
+def obter_entrada():
+    N = int(input())  # Número de entradas
+    velocidades = []
 
-dados = arquivo.splitlines()
-expediente = dados[0]
-tempos_producao = dados[1]
+    for i in range(N):
+        T, D = map(int, input().strip().split())
+        velocidades.append((T, D))
 
-tempo_total_producao = 0
-for tempo in tempos_producao.split(" "):
-    tempo_total_producao += float(tempo)
+    return N, velocidades
 
-if tempo_total_producao > float(expediente):
-    print("Deixa para amanha!")
-else:
-    print("Farei hoje!")
+def calcular_maxima_velocidade(velocidades):
+    Vmax = 0
+    for i, (T, D) in enumerate(velocidades, start=1):
+        V = D / T
+        if V > Vmax:
+            Vmax = V
+            print(i)
+
+def main():
+    while True:
+        try:
+            N, velocidades = obter_entrada()
+            calcular_maxima_velocidade(velocidades)
+        except EOFError:
+            break
+
+main()
