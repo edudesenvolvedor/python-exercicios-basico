@@ -1,4 +1,4 @@
-arquivo = "3.0 4.0 5.2"
+arquivo = input()
 
 PI = 3.14159
 
